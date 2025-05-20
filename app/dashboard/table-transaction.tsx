@@ -2,6 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { getRecentTransactions } from "@/data/getRecentTransactions";
 import { format } from "date-fns";
+import numeral from "numeral";
 
 
 export default async function TableTransactions() {
@@ -42,6 +43,9 @@ const transactions = await getRecentTransactions();
                        <TableCell>
                         {transaction.category}
                     </TableCell>
+                     <TableCell>
+                    £{numeral(transaction.amount).format("0,0[.]00")}
+                  </TableCell>
                     </TableRow>
                 ))}
              </TableBody>

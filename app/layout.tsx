@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
+import { ChartColumnBigIcon } from "lucide-react";
+import { ClerkProvider, SignedIn, SignedOut, SignInButton, SignUpButton } from "@clerk/nextjs";
+import { Button } from "@/components/ui/button";
+import UserDropdown from "./user-dropdown";
+import { Toaster } from "sonner";
 
-const geistSans = Geist({
+const geistSans = Poppins({
+  weight:["100", "200" , "300", "400", "500" , "600", "700", "800", "900"],
   variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
@@ -23,12 +25,34 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <ClerkProvider>
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+        className={`${geistSans.variable} antialiased`}>
+          <nav className="bg-primary p-4 text-white h-20 flex items-center justify-between">
+            <Link href="/" className="font-bold text-2xl flex gap-1 items-center">
+            <ChartColumnBigIcon className="text-lime-500"/>NextCash
+            </Link>
+            <div className="cursor-pointer">
+              <SignedOut>
+                <div className="flex items-center ">
+                  <Button asChild variant="link" className="text-white cursor-pointer">
+                  <SignInButton />
+                  </Button>
+                  <Button asChild variant="link" className="text-white cursor-pointer">
+                  <SignUpButton />
+                </Button>
+                </div>
+              </SignedOut>
+              <SignedIn>
+                <UserDropdown />
+              </SignedIn>
+            </div>
+          </nav>
         {children}
+        <Toaster />
       </body>
     </html>
+    </ClerkProvider>
   );
 }

@@ -11,7 +11,7 @@ const transactions = await getRecentTransactions();
   return <div>
      {!transactions?.length && (
             <p className="text-center py-10 text-lg text-muted-foreground">
-              You have no transaction yet.Start by hitting "Create new" to create your first transaction
+              You have no transaction yet.Start by hitting &quot;Create new&quot; to create your first transaction
             </p>
         )}
         {!!transactions?.length &&

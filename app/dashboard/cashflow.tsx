@@ -2,12 +2,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getAnnualCashflow } from "@/data/getAnnualCashflows";
 import CashflowFilters from "./cashflow-filters";
 import { CashflowContent } from "./cashflow-content";
-import { getTransactionYearRange } from "@/data/getTransactionYearsRange";
+import { getTransactionYearsRange } from "@/data/getTransactionYearsRange";
 
  export default async function Cashflow({ year }: { year: number }) {
   const [cashflow, yearsRange] = await Promise.all([
     getAnnualCashflow(year),
-    getTransactionYearRange(),
+    getTransactionYearsRange(),
   ]);
 
   return (

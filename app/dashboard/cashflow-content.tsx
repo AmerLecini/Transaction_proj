@@ -57,7 +57,7 @@ export function CashflowContent({
             return <span className="capitalize text-primary">{value}</span>
         }}/>
     <Bar dataKey="income" radius={4} fill="var(--color-income)" />
-    <Bar dataKey="expense" radius={4} fill="var(--color-expenses)" />
+    <Bar dataKey="expenses" radius={4} fill="var(--color-expenses)" />
     </BarChart>
     </ChartContainer>
     <div className="border-l px-4 flex flex-col gap-4 justify-center">

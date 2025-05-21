@@ -33,10 +33,11 @@ export default function DeleteTransactionDialog({
    }
     return (
         <AlertDialog>
-            <AlertDialogTrigger>
+            <AlertDialogTrigger asChild>
                 <Button variant="destructive" size="icon">
                <Trash2Icon />
                 </Button>
+            </AlertDialogTrigger>
                 <AlertDialogContent>
                     <AlertDialogHeader>
                         <AlertDialogTitle>
@@ -51,7 +52,6 @@ export default function DeleteTransactionDialog({
                         <Button onClick={handleDeleteConfirm} variant="destructive" className="cursor-pointer">Delete</Button>
                     </AlertDialogFooter>
                 </AlertDialogContent>
-            </AlertDialogTrigger>
         </AlertDialog>
     )
 

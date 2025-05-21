@@ -10,7 +10,8 @@ import Link from "next/link";
 import numeral from "numeral";
 import { z } from "zod";
 import Filters from "./filters";
-import { getTransactionYearRange } from "@/data/getTransactionYearsRange";
+import { getTransactionYearsRange } from "@/data/getTransactionYearsRange";
+
 
 
 const today = new Date();
@@ -37,7 +38,7 @@ export default async function Transaction( {searchParams} :
 
     const transactions = await getTransactionByMonth({month, year});
 
-    const yearsRange = await getTransactionYearRange()
+    const yearsRange = await getTransactionYearsRange();
 
     console.log({ transactions });
     
@@ -122,4 +123,8 @@ export default async function Transaction( {searchParams} :
 </div>
 );
 }
+
+// function getTransactionYearRange() {
+//     throw new Error("Function not implemented.");
+// }
 

@@ -23,6 +23,6 @@
 -Authentication
   I've used Clerk Authentication to integrate secure user authentication with ease.
 
-  Also the proj is developed to Vercel(link below):
+  Also the proj is developed to Vercel(link ->):
   https://transaction-proj.vercel.app
     
